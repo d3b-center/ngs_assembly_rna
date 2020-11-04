@@ -7,6 +7,7 @@ The Steps for merging the fusion files are :
 	- Manifest is mandatory it can either be downloaded from cavatica project (deefault) or bix-ops generated json format manifest. 
 	- Files can be downloaded using the script with --download==TRUE or manually and placed in "INPUTDIR"    
 
+```
 Rscript 00-format-annotate-fusion-files.R --help
 
 
@@ -67,3 +68,4 @@ Options:
 	-h, --help
 		Show this help message and exit
 
+```
