@@ -2,7 +2,7 @@
 
 
 The Steps for merging the fusion files are :
- 1) format arriba file to obtain annotation from FusionAnnotator using this app: gaonkark/pbta-merge-fusion/kfdrc-fusion-formatting-wf 
+ 1) Format arriba file to obtain annotation from FusionAnnotator using this app: gaonkark/pbta-merge-fusion/kfdrc-fusion-formatting-wf 
  2) Download formatted Arriba and Starfusion files along with a manifest to merge with existing merged files from previous releases.
 	- Manifest is mandatory it can either be downloaded from cavatica project (deefault) or bix-ops generated json format manifest. 
 	- Files can be downloaded using the script with --download==TRUE or manually and placed in "INPUTDIR"    
