@@ -2,9 +2,8 @@
 
 The Steps for merging kallisto files are :
  1) Download kallisto isoform expression quantificaton files along with a manifest to merge with existing merged files from previous releases.
- 
-        -  Manifest is mandatory it can either be downloaded from cavatica project (deefault) or bix-ops generated json format manifest.
-        -  Files can be downloaded using the script with --download==TRUE or manually and placed in "INPUTDIR"
+	- Manifest is mandatory it can either be downloaded from cavatica project (deefault) or bix-ops generated json format manifest.
+	- Files can be downloaded using the script with --download==TRUE or manually and placed in "INPUTDIR"
 
 ```
 Rscript 00-create-and-add-kallisto-isoforms-files.R --help
