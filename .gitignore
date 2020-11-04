@@ -1,0 +1,2 @@
+# ignoring since it's too large is 133.70 MB
+analyses/merge_kallisto/input/gencode_primary_assembly.reformatted.annotation.gtf
