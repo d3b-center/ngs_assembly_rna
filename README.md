@@ -1,17 +1,27 @@
 # ngs_assembly_rna
 
 In this repo wee are generating merged rsem, kallisto and fusion files that are direct release files 
+	
 	- pbta-fusion-arriba.tsv.gz
+	
 	- pbta-fusion-starfusion.tsv.gz
+	
 	- pbta-gene-expression-rsem-fpkm.polya.rds
+	
 	- pbta-gene-expression-rsem-fpkm.stranded.rds
+	
 	- pbta-gene-expression-rsem-tpm.polya.rds
+	
 	- pbta-gene-expression-rsem-tpm.stranded.rds
 
 The above files are then used as direct inputs for OpenPBTA modules to generate other release files 
+	
 	- pbta-fusion-putative-oncogenic.tsv
+	
 	- pbta-gene-expression-rsem-fpkm-collapsed.polya.rds
+	
 	- pbta-gene-expression-rsem-fpkm-collapsed.stranded.rds
+	
 	- molecular_subtype for histology file
 
 
