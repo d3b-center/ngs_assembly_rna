@@ -9,7 +9,7 @@ The Steps for merging the rsem files are :
 	- Files can be downloaded using the script with --download==TRUE or manually and placed in "INPUTDIR"   
 
 
-
+```
 Rscript 00-create-and-add-rsem-gene-files.R --help
 
 Options:
@@ -95,4 +95,4 @@ Options:
 	-h, --help
 		Show this help message and exit
 
-
+```
