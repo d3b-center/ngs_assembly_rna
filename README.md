@@ -23,6 +23,8 @@ The above files are then used as direct inputs for OpenPBTA modules to generate 
 	- pbta-gene-expression-rsem-fpkm-collapsed.stranded.rds
 	
 	- molecular_subtype for histology file
+	 
+	- batch correction files 
 
 
 
