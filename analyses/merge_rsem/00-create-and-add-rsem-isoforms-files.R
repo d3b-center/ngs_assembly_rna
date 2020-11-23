@@ -18,7 +18,7 @@ option_list <- list(
   ),
   make_option(c("--manifest"),
     type = "character",
-    help = "Manifest file with cavatica downloaded csv file with colnames `Kids First Biospecimen ID, name, id`, json file with column names  `Kids_First_Biospecimen_ID,filepath,cavatica_id`"
+    help = "Manifest file "
   ),
   make_option(c("--manifest_format"),
               type = "character", default = "csv",
@@ -26,11 +26,11 @@ option_list <- list(
   ),
   make_option(c("--outdir"),
     type = "character",
-    help = "Path to output directory for merged files"
+    help = "Path to output directory"
   ),
   make_option(c("-d", "--download"),
     type = "logical",
-    help = "TRUE download from cavatica", default = TRUE
+    help = "download from cavatica", default = TRUE
   ),
   make_option(c("-u", "--username"),
     type = "character",
@@ -46,19 +46,23 @@ option_list <- list(
   ),
   make_option(c("-c", "--old_rsem_count"),
     type = "character",
-    help = "Path to old meerged count files", default = NULL
+    help = "Path to old count files", default = NULL
   ),
   make_option(c("-f", "--old_rsem_fpkm"),
     type = "character",
-    help = "Path to old merged fpkm files", default = NULL
+    help = "Path to old fpkm merged files", default = NULL
   ),
   make_option(c("-t", "--old_rsem_tpm"),
     type = "character",
-    help = "Path to old merged tpm files", default = NULL
+    help = "Path to old tpm merged files", default = NULL
   ),
   make_option(c("-o", "--outname_prefix"),
     type = "character",
-    help = "outname prefix for merged files"
+    help = "outname prefix"
+  ),
+  make_option(c("-l", "--library"),
+              type = "character",
+              help = "outname prefix"
   )
 )
 
@@ -76,6 +80,7 @@ old_rsem_tpm <- opt$old_rsem_tpm
 old_rsem_count <- opt$old_rsem_count
 outname_prefix <- opt$outname_prefix
 mergefiles <- opt$mergefiles
+library <- opt$library
 
 # read manifest file
 if (manifest_format == "csv"){
@@ -151,7 +156,7 @@ if (mergefiles) {
     # merge with old file
     all_rnaseq_rsem.counts <- old_rsem_count %>% left_join(rnaseq.counts[, c("transcript_id", new_samples)], by = "transcript_id")
     # save output
-    saveRDS(all_rnaseq_rsem.counts, file = file.path(outdir, paste0(outname_prefix, "-isoform-counts-rsem-expected_count.rnaseq.rds")))
+    saveRDS(all_rnaseq_rsem.counts, file = file.path(outdir, paste0(outname_prefix, "-isoform-counts-rsem-expected_count.",library,".rds")))
   }
   
   if (!is.null(old_rsem_tpm)) {
@@ -163,7 +168,7 @@ if (mergefiles) {
     # merge with old file
     all_rnaseq_rsem.tpm <- old_rsem_tpm %>% left_join(rnaseq.tpm[, c("transcript_id", new_samples)], by = "transcript_id")
     # save output
-    saveRDS(all_rnaseq_rsem.tpm, file = file.path(outdir, paste0(outname_prefix, "-isoform-expression-rsem-tpm.rnaseq.rds")))
+    saveRDS(all_rnaseq_rsem.tpm, file = file.path(outdir, paste0(outname_prefix, "-isoform-expression-rsem-tpm.",library,".rds")))
   }
   
 }

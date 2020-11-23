@@ -49,6 +49,9 @@ Options:
 	-o OUTNAME_PREFIX, --outname_prefix=OUTNAME_PREFIX
 		outname prefix for merged files
 
+        -l LIBRARY, --library=LIBRARY
+		outname prefix
+
 	-h, --help
 		Show this help message and exit
 
@@ -91,6 +94,9 @@ Options:
 
 	-o OUTNAME_PREFIX, --outname_prefix=OUTNAME_PREFIX
 		outname prefix for merged files
+	
+        -l LIBRARY, --library=LIBRARY
+		outname prefix
 
 	-h, --help
 		Show this help message and exit
