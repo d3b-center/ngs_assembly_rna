@@ -2,14 +2,14 @@
 
 The Steps for merging the rsem files are :
  1) Download rsem gene expression quantificaton files along with a manifest to merge with existing merged files from previous releases.
-        - Manifest is mandatory it can either be downloaded from cavatica project (deefault) or bix-ops generated json format manifest.
-        - Files can be downloaded using the script with --download==TRUE or manually and placed in "INPUTDIR"
+ 	- Manifest is mandatory it can either be downloaded from cavatica project (deefault) or bix-ops generated json format manifest.
+	- Files can be downloaded using the script with --download==TRUE or manually and placed in "INPUTDIR"
  2) Download rsem isoform expression quantificaton files along with a manifest to merge with existing merged files from previous releases.
-        - Manifest is mandatory it can either be downloaded from cavatica project (deefault) or bix-ops generated json format manifest.
+	- Manifest is mandatory it can either be downloaded from cavatica project (deefault) or bix-ops generated json format manifest
 	- Files can be downloaded using the script with --download==TRUE or manually and placed in "INPUTDIR"   
 
 
-
+```
 Rscript 00-create-and-add-rsem-gene-files.R --help
 
 Options:
@@ -101,4 +101,4 @@ Options:
 	-h, --help
 		Show this help message and exit
 
-
+```
