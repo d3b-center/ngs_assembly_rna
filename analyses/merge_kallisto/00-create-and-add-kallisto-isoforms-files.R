@@ -18,7 +18,7 @@ option_list <- list(
   ),
   make_option(c("--manifest"),
     type = "character",
-    help = "Manifest file with cavatica downloaded csv file with colnames `Kids First Biospecimen ID, name, id`, json file with column names  `Kids_First_Biospecimen_ID,filepath,cavatica_id`"
+    help = "Manifest file "
   ),
   make_option(c("--manifest_format"),
               type = "character", default = "csv",
@@ -26,11 +26,11 @@ option_list <- list(
   ),
   make_option(c("--outdir"),
     type = "character",
-    help = "Path to output directory for merged files"
+    help = "Path to output directory"
   ),
   make_option(c("-d", "--download"),
     type = "logical",
-    help = "TRUE to download from cavatica", default = TRUE
+    help = "download from cavatica", default = TRUE
   ),
   make_option(c("-u", "--username"),
     type = "character",
@@ -50,7 +50,7 @@ option_list <- list(
   ),
   make_option(c("-o", "--outname"),
     type = "character",
-    help = "outname prefix for merged files"
+    help = "outname"
   )
 )
 
@@ -126,7 +126,9 @@ if (mergefiles) {
     as.data.frame()
   
   # gtf formatted by wongj https://cavatica.sbgenomics.com/u/wongj4/test/files/#q?search=gencode_primary_assembly.reformatted.annotation.gft
-  gtf <- data.table::fread("input/gencode_primary_assembly.reformatted.annotation.gtf",stringsAsFactors = FALSE)
+  gtf <- data.table::fread("input/gencode_primary_assembly.reformatted.annotation.gft",stringsAsFactors = FALSE) %>% 
+    dplyr::select(Transcript_ID,Transcript_Name,Gene_ID,Gene_Name) %>%
+    unique()
   rnaseq.tpm <-merge(expr.tpm ,gtf,by.x="target_id",by.y="Transcript_ID")
   rnaseq.tpm <- rnaseq.tpm %>%
     dplyr::mutate(transcript_id=paste(rnaseq.tpm$target_id,rnaseq.tpm$Transcript_Name,sep="_"),
