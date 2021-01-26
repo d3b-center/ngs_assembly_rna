@@ -133,7 +133,12 @@ if (mergefiles) {
   lfiles <- list.files(path = topDir, pattern = "*.starfusion_formatted.tsv", recursive = TRUE)
   read.starfusion <- function(x) {
     print(x)
-    dat <- read_tsv(file.path(topDir,x))  %>%
+    dat <- read_tsv(file.path(topDir,x),col_types = 
+                      readr::cols( JunctionReadCount = readr::col_character(),
+                                   SpanningFragCount = readr::col_character(),
+                                   FFPM = readr::col_character(),
+                                   LeftBreakEntropy = readr::col_character(),
+                                   RightBreakEntropy= readr::col_character()))  %>%
       as.data.frame()
     return(dat)
   }
